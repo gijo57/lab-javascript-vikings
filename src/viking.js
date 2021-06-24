@@ -97,10 +97,6 @@ class War {
   }
 }
 
-let war = new War();
-war.addViking(new Viking('Ragnar', 100, 50));
-war.addSaxon(new Saxon(50, 10));
-
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
 if (typeof module !== 'undefined') {
