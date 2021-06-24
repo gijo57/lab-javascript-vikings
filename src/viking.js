@@ -97,7 +97,10 @@ class War {
   }
 
   attack() {
-    return;
+    const viking =
+      this.vikingArmy[Math.floor(Math.random() * this.vikingArmy.length)];
+    const saxon =
+      this.saxonArmy[Math.floor(Math.random() * this.saxonArmy.length)];
   }
 }
 
