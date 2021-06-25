@@ -96,13 +96,29 @@ class War {
     }
   }
 
-  attack() {
+  attack(army) {
     const viking =
       this.vikingArmy[Math.floor(Math.random() * this.vikingArmy.length)];
     const saxon =
       this.saxonArmy[Math.floor(Math.random() * this.saxonArmy.length)];
+    const result =
+      army === 'viking'
+        ? saxon.receiveDamage(viking.strength)
+        : viking.receiveDamage(saxon.strength);
+    if (viking.health <= 0) {
+      this.vikingArmy.splice(this.vikingArmy.indexOf(viking), 1);
+    } else if (saxon.health <= 0) {
+      this.saxonArmy.splice(this.saxonArmy.indexOf(saxon), 1);
+    }
+    return result;
   }
 }
+
+const viking = new Viking('Harald', 100, 50);
+const saxon = new Saxon(40, 20);
+const war = new War();
+war.addViking(viking);
+war.addSaxon(saxon);
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
